@@ -44,8 +44,8 @@ namespace v0617
             }
 
             score--;
-            label2.Text = score;
-            score = label2.Text;
+            //惜しかったよ((
+            label2.Text = $"Score{score}";
         }
 
         private void label1_Click(object sender, EventArgs e)

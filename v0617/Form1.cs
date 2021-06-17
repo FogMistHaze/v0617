@@ -23,6 +23,12 @@ namespace v0617
 
             label1.Left = rand.Next(ClientSize.Width - label1.Width);
             label1.Top = rand.Next(ClientSize.Height - label1.Height);
+
+            label4.Left = rand.Next(ClientSize.Width - label1.Width);
+            label4.Top = rand.Next(ClientSize.Height - label1.Height);
+
+            label5.Left = rand.Next(ClientSize.Width - label1.Width);
+            label5.Top = rand.Next(ClientSize.Height - label1.Height);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -32,8 +38,10 @@ namespace v0617
 
             label3.Left = fpos.X-label3.Width/2;
             label3.Top = fpos.Y-label3.Height/2;
+            //こいつが重要っぽい？
             label3.Text = $"{fpos.X},{fpos.Y}";
 
+            //ラベル１('ω')
             label1.Left += vx;
             label1.Top += vy;
 
@@ -54,6 +62,48 @@ namespace v0617
                 vy = -Math.Abs(vy);
             }
 
+            //ラベル４(*´﹃｀*)
+            label4.Left += vx;
+            label4.Top += vy;
+
+            if (label4.Left < 0)
+            {
+                vx = Math.Abs(vx);
+            }
+            if (label4.Left + label1.Width > ClientSize.Width)
+            {
+                vx = -Math.Abs(vx);
+            }
+            if (label4.Top < 0)
+            {
+                vy = Math.Abs(vy);
+            }
+            if (label4.Bottom > ClientSize.Height)
+            {
+                vy = -Math.Abs(vy);
+            }
+
+            //ラベル５(´・ω・｀)
+            label5.Left += vx;
+            label5.Top += vy;
+
+            if (label5.Left < 0)
+            {
+                vx = Math.Abs(vx);
+            }
+            if (label5.Left + label1.Width > ClientSize.Width)
+            {
+                vx = -Math.Abs(vx);
+            }
+            if (label5.Top < 0)
+            {
+                vy = Math.Abs(vy);
+            }
+            if (label5.Bottom > ClientSize.Height)
+            {
+                vy = -Math.Abs(vy);
+            }
+
             score--;
             label2.Text = $"Score{score}";
 
@@ -63,7 +113,7 @@ namespace v0617
                 && (fpos.Y < label1.Bottom)
                 ) 
             {
-                timer1.Enabled = false;
+                        timer1.Enabled = false;        
             }
         }
 
@@ -75,6 +125,11 @@ namespace v0617
         private void label2_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

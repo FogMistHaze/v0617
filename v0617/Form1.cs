@@ -14,7 +14,6 @@ namespace v0617
     {
         int vx = -10;
         int vy = -10;
-        int score = 100;
 
         public Form1()
         {
@@ -43,8 +42,9 @@ namespace v0617
                 vy = -Math.Abs(vy);
             }
 
-            string score = label2.Text;
+            int score = 100;
             label2.Text = score;
+            score = -1;
         }
 
         private void label1_Click(object sender, EventArgs e)

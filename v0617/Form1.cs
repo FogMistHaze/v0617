@@ -23,6 +23,11 @@ namespace v0617
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            Point spos = MousePosition;
+            spos = PointToClient(spos);
+            label3.Left = spos.X;
+            label3.Top=spos.Y;
+
             label1.Left += vx;
             label1.Top += vy;
 
